@@ -33,13 +33,12 @@ func main() {
 	}
 	rayTracer := &RayTracer{}
 
-	t1 := time.Now()
-	fmt.Println("rendering...")
 	var screenWidth int = 256
 	var screenHeight int = 256
+	t1 := time.Now()
 	img := rayTracer.Render(scene, screenWidth, screenHeight)
 	duration := time.Since(t1).Milliseconds()
-	fmt.Printf("done, used %d ms\n", duration)
+	fmt.Printf("rendering completed, used %d ms\n", duration)
 
 	outputFile, err := os.Create("output.png")
 	if err == nil {
